@@ -1,0 +1,8 @@
+{% extends 'contacts/base.html' %}
+{% block content %}
+<h2>Détails de l’inscription</h2>
+<p><strong>Étudiant :</strong> {{ inscription.etudiant.nom }}</p>
+<p><strong>Cours :</strong> {{ inscription.cours.titre }}</p>
+<p><strong>Date :</strong> {{ inscription.date_inscription }}</p>
+<a href="{% url 'contacts:inscription_list' %}" class="btn btn-secondary">Retour</a>
+{% endblock %}

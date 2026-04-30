@@ -1,0 +1,17 @@
+{% extends 'contacts/base.html' %}
+{% block content %}
+<h2>Détails de l’étudiant</h2>
+<p><strong>Nom :</strong> {{ etudiant.nom }}</p>
+<p><strong>Email :</strong> {{ etudiant.email }}</p>
+
+<h3>Cours suivis :</h3>
+<ul>
+  {% for cours in etudiant.cours.all %}
+    <li>{{ cours.titre }}</li>
+  {% empty %}
+    <li>Aucun cours inscrit</li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'contacts:etudiant_list' %}" class="btn btn-secondary">Retour</a>
+{% endblock %}

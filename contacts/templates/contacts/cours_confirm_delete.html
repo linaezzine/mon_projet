@@ -1,0 +1,12 @@
+{% extends 'contacts/base.html' %}
+{% block content %}
+<h2>Confirmer la suppression</h2>
+<p>Voulez-vous vraiment supprimer le cours <strong>{{ cours.titre }}</strong> ?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Supprimer</button>
+  <a href="{% url 'contacts:cours_list' %}" class="btn btn-secondary">Annuler</a>
+  <a href="{% url 'home' %}" class="btn btn-info">Accueil</a>
+</form>
+{% endblock %}

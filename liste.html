@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Liste des étudiants</h1>
+<a href="{% url 'etudiants:ajouter' %}" class="btn btn-success">+ Ajouter</a>
+<table class="table">
+  <tr>
+    <th>Nom</th>
+    <th>Email</th>
+    <th>Classe</th>
+    <th>Actions</th>
+  </tr>
+  {% for etudiant in etudiants %}
+  <tr>
+    <td>{{ etudiant.nom }}</td>
+    <td>{{ etudiant.email }}</td>
+    <td>{{ etudiant.classe }}</td>
+    <td>
+      <a href="{% url 'etudiants:detail' etudiant.pk %}" class="btn btn-info">Voir</a>
+      <a href="{% url 'etudiants:modifier' etudiant.pk %}" class="btn btn-warning">Modifier</a>
+      <a href="{% url 'etudiants:supprimer' etudiant.pk %}" class="btn btn-danger">Supprimer</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

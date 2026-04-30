@@ -1,0 +1,11 @@
+{% extends 'contacts/base.html' %}
+{% block content %}
+<h2>{% if form.instance.pk %}Modifier{% else %}Ajouter{% endif %} un étudiant</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}  <!-- Django génère automatiquement un champ multi-sélection pour cours -->
+  <button type="submit" class="btn btn-primary">
+    {% if form.instance.pk %}Enregistrer{% else %}Ajouter{% endif %}
+  </button>
+</form>
+{% endblock %}

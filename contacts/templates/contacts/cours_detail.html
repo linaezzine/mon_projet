@@ -1,0 +1,7 @@
+{% extends 'contacts/base.html' %}
+{% block content %}
+<h2>Détails du cours</h2>
+<p><strong>Titre :</strong> {{ cours.titre }}</p>
+<p><strong>Description :</strong> {{ cours.description }}</p>
+<a href="{% url 'contacts:cours_list' %}" class="btn btn-secondary">Retour</a>
+{% endblock %}
